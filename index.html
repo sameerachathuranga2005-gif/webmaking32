@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Generation Website | Professional Web Development</title>
+  <meta name="description" content="We build fast, professional, and high-quality websites. Modern design, clean code, and reliable delivery.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-primary: #070B14;
+      --bg-secondary: #0B1222;
+      --accent: #2D6BFF;
+      --accent-cyan: #00D4FF;
+      --text-primary: #F2F5FA;
+      --text-secondary: #A7B1C6;
+      --border: rgba(242, 245, 250, 0.08);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    
+    .font-mono {
+      font-family: 'IBM Plex Mono', monospace;
+    }
+    
+    /* Text Gradient */
+    .text-gradient {
+      background: linear-gradient(135deg, var(--accent), var(--accent-cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Grid Background */
+    .grid-bg {
+      background-image: 
+        linear-gradient(rgba(242, 245, 250, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(242, 245, 250, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    
+    /* Glow Effects */
+    .glow-blue {
+      box-shadow: 0 0 40px rgba(45, 107, 255, 0.3);
+    }
+    
+    .card-glow {
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+    }
+    
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.5s ease;
+      padding: 1rem 0;
+    }
+    
+    nav.scrolled {
+      background: rgba(7, 11, 20, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .logo:hover {
+      color: var(--accent);
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .nav-links a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+    
+    .nav-cta {
+      padding: 0.625rem 1.25rem;
+      background: var(--accent);
+      color: white;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .nav-cta:hover {
+      background: rgba(45, 107, 255, 0.9);
+      transform: translateY(-2px);
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 8rem 2rem 4rem;
+      overflow: hidden;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(45, 107, 255, 0.15), transparent 55%);
+    }
+    
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: radial-gradient(ellipse at 50% 100%, rgba(0, 212, 255, 0.08), transparent 60%);
+    }
+    
+    .hero-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-content h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.05;
+    }
+    
+    .hero-content p {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    
+    .btn-primary {
+      padding: 0.875rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary:hover {
+      background: rgba(45, 107, 255, 0.9);
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(45, 107, 255, 0.3);
+    }
+    
+    .btn-secondary {
+      padding: 0.875rem 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-primary);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      border-radius: 0.75rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s;
+      background: transparent;
+      cursor: pointer;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: translateY(-2px);
+    }
+    
+    .hero-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    .info-card {
+      padding: 1.25rem;
+      background: rgba(11, 18, 34, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .info-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .info-card p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    
+    .hero-image {
+      position: relative;
+    }
+    
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+    }
+    
+    .floating-badge {
+      position: absolute;
+      bottom: -1rem;
+      left: -1rem;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    .badge-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: rgba(45, 107, 255, 0.2);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+    
+    .badge-text p {
+      margin: 0;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+    
+    .badge-text span {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+    }
+    
+    .scroll-indicator span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+    
+    .scroll-indicator i {
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+    
+    /* Section Styles */
+    section {
+      padding: 6rem 2rem;
+      position: relative;
+    }
+    
+    .section-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .section-header {
+      max-width: 600px;
+      margin-bottom: 4rem;
+    }
+    
+    .section-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+    }
+    
+    .section-desc {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Services Section */
+    .services {
+      background: var(--bg-primary);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .service-card {
+      padding: 2rem;
+      background: rgba(11, 18, 34, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      transition: all 0.3s;
+    }
+    
+    .service-card:hover {
+      border-color: rgba(45, 107, 255, 0.3);
+      background: rgba(11, 18, 34, 0.6);
+      transform: translateY(-4px);
+    }
+    
+    .service-icon {
+      width: 3rem;
+      height: 3rem;
+      background: rgba(45, 107, 255, 0.1);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+    
+    .service-card:hover .service-icon {
+      background: rgba(45, 107, 255, 0.2);
+    }
+    
+    .service-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .service-card p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .service-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .chip {
+      padding: 0.375rem 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 9999px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-secondary);
+    }
+    
+    /* Process Section */
+    .process {
+      background: var(--bg-primary);
+    }
+    
+    .process::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 50%;
+      height: 600px;
+      background: radial-gradient(circle, rgba(45, 107, 255, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+    
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .process-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .step-card {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.5rem;
+      background: rgba(11, 18, 34, 0.4);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      transition: all 0.3s;
+    }
+    
+    .step-card:hover {
+      border-color: rgba(45, 107, 255, 0.3);
+      background: rgba(11, 18, 34, 0.6);
+    }
+    
+    .step-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(45, 107, 255, 0.3);
+      line-height: 1;
+      transition: color 0.3s;
+    }
+    
+    .step-card:hover .step-number {
+      color: rgba(45, 107, 255, 0.5);
+    }
+    
+    .step-content h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .step-content h3 i {
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    
+    .step-content p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .step-note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent-cyan);
+    }
+    
+    .process-image {
+      position: relative;
+    }
+    
+    .process-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+    }
+    
+    .process-overlay {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      padding: 1rem;
+      background: rgba(7, 11, 20, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+    }
+    
+    .process-overlay p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+    
+    .process-overlay span {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    /* Portfolio Section */
+    .portfolio {
+      background: var(--bg-primary);
+    }
+    
+    .portfolio::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(0, 212, 255, 0.05), transparent 60%);
+      pointer-events: none;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 2rem;
+    }
+    
+    .portfolio-header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .portfolio-card {
+      position: relative;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+    
+    .portfolio-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s;
+    }
+    
+    .portfolio-card:hover img {
+      transform: scale(1.05);
+    }
+    
+    .portfolio-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7, 11, 20, 0.9), rgba(7, 11, 20, 0.2), transparent);
+    }
+    
+    .portfolio-content {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      right: 1.5rem;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    
+    .portfolio-meta p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
+    }
+    
+    .portfolio-meta h3 {
+      font-size: 1.5rem;
+    }
+    
+    .portfolio-icon {
+      width: 3rem;
+      height: 3rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      transition: all 0.3s;
+    }
+    
+    .portfolio-card:hover .portfolio-icon {
+      background: var(--accent);
+    }
+    
+    .portfolio-small {
+      margin-top: 2rem;
+      max-width: 600px;
+    }
+    
+    .portfolio-small img {
+      height: 250px;
+    }
+    
+    .portfolio-small .portfolio-meta h3 {
+      font-size: 1.25rem;
+    }
+    
+    /* Features Section */
+    .features {
+      background: var(--bg-secondary);
+    }
+    
+    .features::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 50%;
+      height: 500px;
+      background: radial-gradient(circle, rgba(45, 107, 255, 0.05), transparent 70%);
+      pointer-events: none;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    
+    .feature-card {
+      padding: 1.5rem;
+      background: rgba(7, 11, 20, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      transition: all 0.3s;
+    }
+    
+    .feature-card:hover {
+      border-color: rgba(45, 107, 255, 0.3);
+      background: rgba(7, 11, 20, 0.7);
+      transform: translateY(-4px);
+    }
+    
+    .feature-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: rgba(45, 107, 255, 0.1);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .feature-card p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+    }
+    
+    .tech-stack {
+      text-align: center;
+    }
+    
+    .tech-stack p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+    
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    
+    .tech-tag {
+      padding: 0.625rem 1rem;
+      background: rgba(7, 11, 20, 0.7);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-primary);
+      transition: all 0.3s;
+    }
+    
+    .tech-tag:hover {
+      border-color: rgba(45, 107, 255, 0.3);
+      background: rgba(7, 11, 20, 0.9);
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      background: var(--bg-primary);
+    }
+    
+    .testimonials::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 50%;
+      height: 600px;
+      background: radial-gradient(circle, rgba(45, 107, 255, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .testimonial-image {
+      position: relative;
+    }
+    
+    .testimonial-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+    }
+    
+    .testimonial-content {
+      position: relative;
+    }
+    
+    .stars {
+      display: flex;
+      gap: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .stars i {
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    
+    .testimonial-quote {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+    
+    .testimonial-author {
+      margin-bottom: 1.5rem;
+    }
+    
+    .testimonial-author h4 {
+      font-size: 1.125rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .testimonial-author p {
+      color: var(--text-secondary);
+    }
+    
+    .testimonial-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    
+    .metric {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: rgba(11, 18, 34, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+    
+    .metric i {
+      color: var(--accent);
+      font-size: 0.875rem;
+    }
+    
+    .metric span {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8125rem;
+    }
+    
+    .testimonial-card {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    
+    .testimonial-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .testimonial-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7, 11, 20, 0.9), transparent);
+    }
+    
+    .testimonial-card-content {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      right: 1rem;
+      z-index: 1;
+    }
+    
+    .testimonial-card-content h4 {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .testimonial-card-content p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Contact Section */
+    .contact {
+      background: var(--bg-primary);
+    }
+    
+    .contact::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(0, 212, 255, 0.05), transparent 60%);
+      pointer-events: none;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .form-group label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      padding: 1rem;
+      background: rgba(11, 18, 34, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      color: var(--text-primary);
+      font-size: 0.9375rem;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: rgba(45, 107, 255, 0.5);
+      box-shadow: 0 0 0 3px rgba(45, 107, 255, 0.1);
+    }
+    
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(167, 177, 198, 0.5);
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .contact-image {
+      position: relative;
+    }
+    
+    .contact-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+    }
+    
+    .contact-card {
+      padding: 1.5rem;
+      background: rgba(11, 18, 34, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .contact-icon {
+      width: 3rem;
+      height: 3rem;
+      background: rgba(45, 107, 255, 0.1);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    
+    .contact-item p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+    }
+    
+    .contact-item a {
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .contact-item a:hover {
+      color: var(--accent);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+    
+    .social-links a {
+      width: 2.5rem;
+      height: 2.5rem;
+      background: rgba(7, 11, 20, 0.7);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      color: var(--text-primary);
+      border-color: rgba(45, 107, 255, 0.3);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 4rem 2rem 2rem;
+    }
+    
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-brand p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      margin: 1rem 0 1.5rem;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+    }
+    
+    .footer-social a {
+      width: 2.25rem;
+      height: 2.25rem;
+      background: rgba(7, 11, 20, 0.7);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .footer-social a:hover {
+      color: var(--text-primary);
+      border-color: rgba(45, 107, 255, 0.3);
+    }
+    
+    .footer-links h4 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9375rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+    
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .footer-bottom p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+    
+    .footer-bottom-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .footer-bottom-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.3s;
+    }
+    
+    .footer-bottom-links a:hover {
+      color: var(--text-primary);
+    }
+    
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 1000;
+      width: 3.5rem;
+      height: 3.5rem;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s;
+    }
+    
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+    }
+    
+    .whatsapp-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: rgba(37, 211, 102, 0.4);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    
+    .whatsapp-tooltip {
+      position: absolute;
+      right: 100%;
+      margin-right: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      font-size: 0.8125rem;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    
+    .whatsapp-btn:hover .whatsapp-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .reveal-left.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .reveal-right.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      padding: 1rem 1.5rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 10000;
+      transform: translateX(150%);
+      transition: transform 0.3s ease;
+    }
+    
+    .toast.show {
+      transform: translateX(0);
+    }
+    
+    .toast i {
+      color: #10B981;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-container,
+      .process-grid,
+      .portfolio-grid,
+      .testimonials-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .portfolio-header {
+        order: -1;
+      }
+      
+      .testimonial-content {
+        order: -1;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero {
+        padding-top: 6rem;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero-cards {
+        grid-template-columns: 1fr;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      section {
+        padding: 4rem 1.5rem;
+      }
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 11, 20, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+    
+    .mobile-menu.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .mobile-menu a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .mobile-menu a:hover {
+      color: var(--accent);
+    }
+    
+    .mobile-menu .btn-primary {
+      margin-top: 1rem;
+    }
+    
+    .mobile-menu-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i>
+    <span>Message sent successfully! We'll get back to you within 24 hours.</span>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">NewGen</a>
+      <div class="nav-links">
+        <a href="#portfolio">Work</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-cta">Start a Project</a>
+      </div>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu">
+    <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="#portfolio" onclick="toggleMobileMenu()">Work</a>
+    <a href="#services" onclick="toggleMobileMenu()">Services</a>
+    <a href="#process" onclick="toggleMobileMenu()">Process</a>
+    <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+    <a href="#contact" class="btn-primary" onclick="toggleMobileMenu()">Start a Project</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero grid-bg">
+    <div class="hero-bg"></div>
+    <div class="hero-container">
+      <div class="hero-content reveal-left">
+        <h1>We Build <span class="text-gradient">Fast, Professional</span> & High‑Quality Websites</h1>
+        <p>Modern design, clean code, and reliable delivery—tailored to your business.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">
+            Start a Project
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#portfolio" class="btn-secondary">View Work</a>
+        </div>
+        <div class="hero-cards">
+          <div class="info-card">
+            <h3>Freelance Developer</h3>
+            <p>Specialized in React, performance, and conversion-focused design.</p>
+          </div>
+          <div class="info-card">
+            <h3>Client-First Approach</h3>
+            <p>Clear timelines, transparent pricing, and direct communication.</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image reveal-right">
+        <img src="images/hero_laptop.jpg" alt="Modern web development">
+        <div class="floating-badge">
+          <div class="badge-icon">99%</div>
+          <div class="badge-text">
+            <p>Client</p>
+            <span>Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-label">Our Services</span>
+        <h2 class="section-title">Services built for <span class="text-gradient">speed and clarity</span></h2>
+        <p class="section-desc">From landing pages to full-scale sites, we focus on what moves the needle.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-code"></i></div>
+          <span class="service-label">Development</span>
+          <h3>Custom Websites</h3>
+          <p>Clean, scalable code with fast load times and smooth interactions.</p>
+          <div class="service-chips">
+            <span class="chip">React / Next.js</span>
+            <span class="chip">CMS Integration</span>
+            <span class="chip">Analytics</span>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+          <span class="service-label">E-commerce</span>
+          <h3>Online Stores</h3>
+          <p>Checkout flows, inventory, and SEO—built to sell.</p>
+          <div class="service-chips">
+            <span class="chip">Shopify</span>
+            <span class="chip">Stripe</span>
+            <span class="chip">Conversion</span>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-search"></i></div>
+          <span class="service-label">Performance</span>
+          <h3>SEO & Speed</h3>
+          <p>Core Web Vitals, accessibility, and search-ready structure.</p>
+          <div class="service-chips">
+            <span class="chip">Audit</span>
+            <span class="chip">Optimization</span>
+            <span class="chip">Monitoring</span>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+          <span class="service-label">Design</span>
+          <h3>UI/UX Design</h3>
+          <p>Beautiful, intuitive interfaces that delight users and drive conversions.</p>
+          <div class="service-chips">
+            <span class="chip">Figma</span>
+            <span class="chip">Prototyping</span>
+            <span class="chip">User Research</span>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+          <span class="service-label">Portfolio</span>
+          <h3>Portfolio Sites</h3>
+          <p>Showcase your work with stunning, responsive portfolio websites.</p>
+          <div class="service-chips">
+            <span class="chip">Gallery</span>
+            <span class="chip">Animations</span>
+            <span class="chip">CMS</span>
+          </div>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-globe"></i></div>
+          <span class="service-label">Business</span>
+          <h3>Business Websites</h3>
+          <p>Professional corporate sites that establish credibility and trust.</p>
+          <div class="service-chips">
+            <span class="chip">Branding</span>
+            <span class="chip">Content</span>
+            <span class="chip">Lead Gen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="process">
+    <div class="section-container">
+      <div class="section-header reveal" style="text-align: center; margin-left: auto; margin-right: auto;">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">Simple <span class="text-gradient">3-step</span> process</h2>
+        <p class="section-desc">From idea to launch, we keep things clear and efficient.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-steps">
+          <div class="step-card reveal-left">
+            <span class="step-number">01</span>
+            <div class="step-content">
+              <h3><i class="fas fa-comments"></i> Requirements</h3>
+              <p>We define goals, content, and functionality upfront.</p>
+              <span class="step-note">Typical: 1–2 days</span>
+            </div>
+          </div>
+          <div class="step-card reveal-left">
+            <span class="step-number">02</span>
+            <div class="step-content">
+              <h3><i class="fas fa-palette"></i> Design & Build</h3>
+              <p>UI design, development, and performance tuning.</p>
+              <span class="step-note">Typical: 1–2 weeks</span>
+            </div>
+          </div>
+          <div class="step-card reveal-left">
+            <span class="step-number">03</span>
+            <div class="step-content">
+              <h3><i class="fas fa-rocket"></i> Delivery</h3>
+              <p>Launch, testing, and handoff with documentation.</p>
+              <span class="step-note">Revisions included</span>
+            </div>
+          </div>
+        </div>
+        <div class="process-image reveal-right">
+          <img src="images/process_workspace.jpg" alt="Development process">
+          <div class="process-overlay">
+            <p>Average Delivery</p>
+            <span>7-14 Days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio">
+    <div class="section-container">
+      <div class="portfolio-grid">
+        <div class="portfolio-header reveal-left">
+          <span class="section-label">Portfolio</span>
+          <h2 class="section-title">Selected <span class="text-gradient">Work</span></h2>
+          <p class="section-desc">A few recent builds—fast, responsive, and designed to convert.</p>
+          <a href="#contact" class="btn-primary" style="margin-top: 1.5rem; display: inline-flex;">
+            Request Full Portfolio
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="portfolio-card reveal-right" style="height: 400px;">
+          <img src="images/portfolio_main.jpg" alt="SaaS Landing Page">
+          <div class="portfolio-content">
+            <div class="portfolio-meta">
+              <p>Design + Development</p>
+              <h3>SaaS Landing Page</h3>
+            </div>
+            <div class="portfolio-icon">
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-small reveal">
+        <div class="portfolio-card">
+          <img src="images/portfolio_mobile.jpg" alt="Mobile-First App">
+          <div class="portfolio-content">
+            <div class="portfolio-meta">
+              <p>UI + Frontend</p>
+              <h3>Mobile-First App</h3>
+            </div>
+            <div class="portfolio-icon">
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="section-container">
+      <div class="section-header reveal">
+        <span class="section-label">Features</span>
+        <h2 class="section-title">Built for <span class="text-gradient">performance</span></h2>
+        <p class="section-desc">Reliable architecture, fast delivery, and room to grow.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+          <h3>Fast Load Times</h3>
+          <p>Optimized assets, lazy loading, and edge caching.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i class="fas fa-search"></i></div>
+          <h3>SEO Ready</h3>
+          <p>Structured data, clean URLs, and Core Web Vitals.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+          <h3>Responsive Design</h3>
+          <p>Fluid layouts that work on every device.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Secure & Reliable</h3>
+          <p>HTTPS, security headers, and stable hosting.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i class="fas fa-edit"></i></div>
+          <h3>Easy Editing</h3>
+          <p>CMS setup so your team can update content.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+          <h3>Analytics Built-in</h3>
+          <p>Track events, conversions, and user behavior.</p>
+        </div>
+      </div>
+      <div class="tech-stack reveal">
+        <p>Technologies We Use</p>
+        <div class="tech-tags">
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Tailwind</span>
+          <span class="tech-tag">Node</span>
+          <span class="tech-tag">PostgreSQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <div class="section-container">
+      <div class="testimonials-grid">
+        <div class="testimonial-image reveal-left">
+          <img src="images/testimonial_portrait.jpg" alt="Client testimonial">
+        </div>
+        <div class="testimonial-content reveal-right">
+          <span class="section-label">Client Feedback</span>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <blockquote class="testimonial-quote">
+            "Delivered on time, with clean code and great communication."
+          </blockquote>
+          <div class="testimonial-author">
+            <h4>Sarah Chen</h4>
+            <p>Founder, Brightpath</p>
+          </div>
+          <div class="testimonial-metrics">
+            <div class="metric">
+              <i class="fas fa-chart-line"></i>
+              <span>2× conversion</span>
+            </div>
+            <div class="metric">
+              <i class="fas fa-award"></i>
+              <span>A+ performance</span>
+            </div>
+            <div class="metric">
+              <i class="fas fa-clock"></i>
+              <span>Launched in 10 days</span>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <img src="images/testimonial_detail.jpg" alt="Work detail">
+            <div class="testimonial-card-content">
+              <h4>The Details Matter</h4>
+              <p>We polish every interaction until it feels effortless.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="section-container">
+      <div class="contact-grid">
+        <div class="reveal-left">
+          <span class="section-label">Get In Touch</span>
+          <h2 class="section-title">Let's build your <span class="text-gradient">next site.</span></h2>
+          <p class="section-desc">Tell us what you need. We'll reply within 24 hours.</p>
+          
+          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width: fit-content;">
+              <span id="btnText">Send Message</span>
+              <i class="fas fa-paper-plane" id="btnIcon"></i>
+              <div id="btnLoader" style="display: none; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+            </button>
+          </form>
+        </div>
+        <div class="contact-info reveal-right">
+          <div class="contact-image">
+            <img src="images/contact_collab.jpg" alt="Let's collaborate">
+          </div>
+          <div class="contact-card">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <p>Email us at</p>
+                <a href="mailto:sameerachathuranga2005@gmail.com">sameerachathuranga2005@gmail.com</a>
+              </div>
+            </div>
+            <div class="social-links">
+              <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://dribbble.com" target="_blank" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">NewGen</a>
+          <p>Building fast, professional, and high-quality websites for modern businesses.</p>
+          <div class="footer-social">
+            <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://dribbble.com" target="_blank" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Custom Websites</a></li>
+            <li><a href="#services">E-commerce</a></li>
+            <li><a href="#services">Portfolio Sites</a></li>
+            <li><a href="#services">SEO & Speed</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:sameerachathuranga2005@gmail.com">sameerachathuranga2005@gmail.com</a></li>
+            <li><a href="https://wa.me/94771438102">+94 77 143 8102</a></li>
+            <li style="color: var(--text-secondary); margin-top: 0.5rem;">Available Mon-Fri<br>9:00 AM - 6:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 New Generation Website. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/94771438102?text=Hi! I'm interested in building a website. Can we discuss?" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+  </a>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
+    }
+
+    // Reveal animations on scroll
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Form submission
+    function handleSubmit(e) {
+      e.preventDefault();
+      
+      const btnText = document.getElementById('btnText');
+      const btnIcon = document.getElementById('btnIcon');
+      const btnLoader = document.getElementById('btnLoader');
+      const toast = document.getElementById('toast');
+      
+      // Show loading state
+      btnText.style.display = 'none';
+      btnIcon.style.display = 'none';
+      btnLoader.style.display = 'block';
+      
+      // Simulate form submission
+      setTimeout(() => {
+        // Reset button
+        btnText.style.display = 'inline';
+        btnIcon.style.display = 'inline';
+        btnLoader.style.display = 'none';
+        
+        // Show toast
+        toast.classList.add('show');
+        
+        // Reset form
+        document.getElementById('contactForm').reset();
+        
+        // Hide toast after 5 seconds
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 5000);
+      }, 1500);
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Add spin animation for loader
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
