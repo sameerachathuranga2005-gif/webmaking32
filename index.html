@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Generation Website | Professional Web Development</title>
-  <meta name="description" content="We build fast, professional, and high-quality websites. Modern design, clean code, and reliable delivery.">
-  
+  <meta name="description"
+    content="We build fast, professional, and high-quality websites. Modern design, clean code, and reliable delivery.">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+
   <style>
     :root {
       --bg-primary: #070B14;
@@ -24,17 +28,17 @@
       --text-secondary: #A7B1C6;
       --border: rgba(242, 245, 250, 0.08);
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     html {
       scroll-behavior: smooth;
     }
-    
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg-primary);
@@ -42,17 +46,22 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-    
-    h1, h2, h3, h4, h5, h6 {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
       line-height: 1.1;
     }
-    
+
     .font-mono {
       font-family: 'IBM Plex Mono', monospace;
     }
-    
+
     /* Text Gradient */
     .text-gradient {
       background: linear-gradient(135deg, var(--accent), var(--accent-cyan));
@@ -60,24 +69,24 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    
+
     /* Grid Background */
     .grid-bg {
-      background-image: 
+      background-image:
         linear-gradient(rgba(242, 245, 250, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(242, 245, 250, 0.03) 1px, transparent 1px);
       background-size: 60px 60px;
     }
-    
+
     /* Glow Effects */
     .glow-blue {
       box-shadow: 0 0 40px rgba(45, 107, 255, 0.3);
     }
-    
+
     .card-glow {
       box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
     }
-    
+
     /* Navigation */
     nav {
       position: fixed;
@@ -88,13 +97,13 @@
       transition: all 0.5s ease;
       padding: 1rem 0;
     }
-    
+
     nav.scrolled {
       background: rgba(7, 11, 20, 0.9);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
-    
+
     .nav-container {
       max-width: 1400px;
       margin: 0 auto;
@@ -103,7 +112,7 @@
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .logo {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.875rem;
@@ -113,17 +122,17 @@
       text-decoration: none;
       transition: color 0.3s;
     }
-    
+
     .logo:hover {
       color: var(--accent);
     }
-    
+
     .nav-links {
       display: flex;
       gap: 2rem;
       align-items: center;
     }
-    
+
     .nav-links a {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.75rem;
@@ -133,11 +142,11 @@
       text-decoration: none;
       transition: color 0.3s;
     }
-    
+
     .nav-links a:hover {
       color: var(--text-primary);
     }
-    
+
     .nav-cta {
       padding: 0.625rem 1.25rem;
       background: var(--accent);
@@ -148,12 +157,12 @@
       text-decoration: none;
       transition: all 0.3s;
     }
-    
+
     .nav-cta:hover {
       background: rgba(45, 107, 255, 0.9);
       transform: translateY(-2px);
     }
-    
+
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -162,7 +171,7 @@
       font-size: 1.5rem;
       cursor: pointer;
     }
-    
+
     /* Hero Section */
     .hero {
       min-height: 100vh;
@@ -172,20 +181,20 @@
       padding: 8rem 2rem 4rem;
       overflow: hidden;
     }
-    
+
     .hero-bg {
       position: absolute;
       inset: 0;
       z-index: 0;
     }
-    
+
     .hero-bg::before {
       content: '';
       position: absolute;
       inset: 0;
       background: radial-gradient(circle at 70% 30%, rgba(45, 107, 255, 0.15), transparent 55%);
     }
-    
+
     .hero-bg::after {
       content: '';
       position: absolute;
@@ -195,7 +204,7 @@
       height: 50%;
       background: radial-gradient(ellipse at 50% 100%, rgba(0, 212, 255, 0.08), transparent 60%);
     }
-    
+
     .hero-container {
       max-width: 1400px;
       margin: 0 auto;
@@ -207,27 +216,27 @@
       position: relative;
       z-index: 1;
     }
-    
+
     .hero-content h1 {
       font-size: clamp(2.5rem, 5vw, 4rem);
       margin-bottom: 1.5rem;
       line-height: 1.05;
     }
-    
+
     .hero-content p {
       font-size: 1.125rem;
       color: var(--text-secondary);
       max-width: 500px;
       margin-bottom: 2rem;
     }
-    
+
     .hero-buttons {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
       margin-bottom: 3rem;
     }
-    
+
     .btn-primary {
       padding: 0.875rem 1.5rem;
       background: var(--accent);
@@ -243,13 +252,13 @@
       border: none;
       cursor: pointer;
     }
-    
+
     .btn-primary:hover {
       background: rgba(45, 107, 255, 0.9);
       transform: translateY(-2px);
       box-shadow: 0 0 40px rgba(45, 107, 255, 0.3);
     }
-    
+
     .btn-secondary {
       padding: 0.875rem 1.5rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -265,18 +274,18 @@
       background: transparent;
       cursor: pointer;
     }
-    
+
     .btn-secondary:hover {
       background: rgba(255, 255, 255, 0.05);
       transform: translateY(-2px);
     }
-    
+
     .hero-cards {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
-    
+
     .info-card {
       padding: 1.25rem;
       background: rgba(11, 18, 34, 0.5);
@@ -284,22 +293,22 @@
       border-radius: 1rem;
       backdrop-filter: blur(10px);
     }
-    
+
     .info-card h3 {
       font-size: 1rem;
       margin-bottom: 0.5rem;
     }
-    
+
     .info-card p {
       font-size: 0.875rem;
       color: var(--text-secondary);
       margin: 0;
     }
-    
+
     .hero-image {
       position: relative;
     }
-    
+
     .hero-image img {
       width: 100%;
       height: auto;
@@ -307,7 +316,7 @@
       border: 1px solid var(--border);
       box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
     }
-    
+
     .floating-badge {
       position: absolute;
       bottom: -1rem;
@@ -321,7 +330,7 @@
       gap: 0.75rem;
       animation: float 4s ease-in-out infinite;
     }
-    
+
     .badge-icon {
       width: 2.5rem;
       height: 2.5rem;
@@ -334,23 +343,30 @@
       font-weight: 700;
       font-size: 0.875rem;
     }
-    
+
     .badge-text p {
       margin: 0;
       font-size: 0.75rem;
       color: var(--text-secondary);
     }
-    
+
     .badge-text span {
       font-weight: 600;
       color: var(--text-primary);
     }
-    
+
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
-    
+
     .scroll-indicator {
       position: absolute;
       bottom: 2rem;
@@ -362,40 +378,53 @@
       gap: 0.5rem;
       color: var(--text-secondary);
     }
-    
+
     .scroll-indicator span {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6875rem;
       text-transform: uppercase;
       letter-spacing: 0.2em;
     }
-    
+
     .scroll-indicator i {
       animation: bounce 2s infinite;
     }
-    
+
     @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-10px); }
-      60% { transform: translateY(-5px); }
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-10px);
+      }
+
+      60% {
+        transform: translateY(-5px);
+      }
     }
-    
+
     /* Section Styles */
     section {
       padding: 6rem 2rem;
       position: relative;
     }
-    
+
     .section-container {
       max-width: 1400px;
       margin: 0 auto;
     }
-    
+
     .section-header {
       max-width: 600px;
       margin-bottom: 4rem;
     }
-    
+
     .section-label {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.75rem;
@@ -405,28 +434,28 @@
       margin-bottom: 1rem;
       display: block;
     }
-    
+
     .section-title {
       font-size: clamp(2rem, 4vw, 3rem);
       margin-bottom: 1rem;
     }
-    
+
     .section-desc {
       font-size: 1.125rem;
       color: var(--text-secondary);
     }
-    
+
     /* Services Section */
     .services {
       background: var(--bg-primary);
     }
-    
+
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 1.5rem;
     }
-    
+
     .service-card {
       padding: 2rem;
       background: rgba(11, 18, 34, 0.4);
@@ -434,13 +463,13 @@
       border-radius: 1.25rem;
       transition: all 0.3s;
     }
-    
+
     .service-card:hover {
       border-color: rgba(45, 107, 255, 0.3);
       background: rgba(11, 18, 34, 0.6);
       transform: translateY(-4px);
     }
-    
+
     .service-icon {
       width: 3rem;
       height: 3rem;
@@ -453,11 +482,11 @@
       color: var(--accent);
       font-size: 1.25rem;
     }
-    
+
     .service-card:hover .service-icon {
       background: rgba(45, 107, 255, 0.2);
     }
-    
+
     .service-label {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6875rem;
@@ -466,24 +495,24 @@
       color: var(--text-secondary);
       margin-bottom: 0.5rem;
     }
-    
+
     .service-card h3 {
       font-size: 1.25rem;
       margin-bottom: 0.75rem;
     }
-    
+
     .service-card p {
       color: var(--text-secondary);
       font-size: 0.9375rem;
       margin-bottom: 1.25rem;
     }
-    
+
     .service-chips {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-    
+
     .chip {
       padding: 0.375rem 0.75rem;
       background: rgba(255, 255, 255, 0.05);
@@ -494,12 +523,12 @@
       letter-spacing: 0.05em;
       color: var(--text-secondary);
     }
-    
+
     /* Process Section */
     .process {
       background: var(--bg-primary);
     }
-    
+
     .process::before {
       content: '';
       position: absolute;
@@ -511,20 +540,20 @@
       background: radial-gradient(circle, rgba(45, 107, 255, 0.1), transparent 70%);
       pointer-events: none;
     }
-    
+
     .process-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
     }
-    
+
     .process-steps {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
     }
-    
+
     .step-card {
       display: flex;
       gap: 1.25rem;
@@ -534,12 +563,12 @@
       border-radius: 1.25rem;
       transition: all 0.3s;
     }
-    
+
     .step-card:hover {
       border-color: rgba(45, 107, 255, 0.3);
       background: rgba(11, 18, 34, 0.6);
     }
-    
+
     .step-number {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 2.5rem;
@@ -548,11 +577,11 @@
       line-height: 1;
       transition: color 0.3s;
     }
-    
+
     .step-card:hover .step-number {
       color: rgba(45, 107, 255, 0.5);
     }
-    
+
     .step-content h3 {
       font-size: 1.125rem;
       margin-bottom: 0.5rem;
@@ -560,28 +589,28 @@
       align-items: center;
       gap: 0.5rem;
     }
-    
+
     .step-content h3 i {
       color: var(--accent);
       font-size: 1rem;
     }
-    
+
     .step-content p {
       color: var(--text-secondary);
       font-size: 0.9375rem;
       margin-bottom: 0.5rem;
     }
-    
+
     .step-note {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.75rem;
       color: var(--accent-cyan);
     }
-    
+
     .process-image {
       position: relative;
     }
-    
+
     .process-image img {
       width: 100%;
       height: auto;
@@ -589,7 +618,7 @@
       border: 1px solid var(--border);
       box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
     }
-    
+
     .process-overlay {
       position: absolute;
       bottom: 1.5rem;
@@ -601,7 +630,7 @@
       border: 1px solid var(--border);
       border-radius: 0.75rem;
     }
-    
+
     .process-overlay p {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6875rem;
@@ -610,18 +639,18 @@
       color: var(--accent);
       margin-bottom: 0.25rem;
     }
-    
+
     .process-overlay span {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1.5rem;
       font-weight: 700;
     }
-    
+
     /* Portfolio Section */
     .portfolio {
       background: var(--bg-primary);
     }
-    
+
     .portfolio::before {
       content: '';
       position: absolute;
@@ -633,19 +662,19 @@
       background: radial-gradient(ellipse, rgba(0, 212, 255, 0.05), transparent 60%);
       pointer-events: none;
     }
-    
+
     .portfolio-grid {
       display: grid;
       grid-template-columns: 1fr 1.5fr;
       gap: 2rem;
     }
-    
+
     .portfolio-header {
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-    
+
     .portfolio-card {
       position: relative;
       border-radius: 1.25rem;
@@ -653,25 +682,25 @@
       border: 1px solid var(--border);
       cursor: pointer;
     }
-    
+
     .portfolio-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.7s;
     }
-    
+
     .portfolio-card:hover img {
       transform: scale(1.05);
     }
-    
+
     .portfolio-card::after {
       content: '';
       position: absolute;
       inset: 0;
       background: linear-gradient(to top, rgba(7, 11, 20, 0.9), rgba(7, 11, 20, 0.2), transparent);
     }
-    
+
     .portfolio-content {
       position: absolute;
       bottom: 1.5rem;
@@ -682,7 +711,7 @@
       justify-content: space-between;
       align-items: flex-end;
     }
-    
+
     .portfolio-meta p {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6875rem;
@@ -691,11 +720,11 @@
       color: var(--accent);
       margin-bottom: 0.25rem;
     }
-    
+
     .portfolio-meta h3 {
       font-size: 1.5rem;
     }
-    
+
     .portfolio-icon {
       width: 3rem;
       height: 3rem;
@@ -708,29 +737,29 @@
       color: var(--text-primary);
       transition: all 0.3s;
     }
-    
+
     .portfolio-card:hover .portfolio-icon {
       background: var(--accent);
     }
-    
+
     .portfolio-small {
       margin-top: 2rem;
       max-width: 600px;
     }
-    
+
     .portfolio-small img {
       height: 250px;
     }
-    
+
     .portfolio-small .portfolio-meta h3 {
       font-size: 1.25rem;
     }
-    
+
     /* Features Section */
     .features {
       background: var(--bg-secondary);
     }
-    
+
     .features::before {
       content: '';
       position: absolute;
@@ -741,14 +770,14 @@
       background: radial-gradient(circle, rgba(45, 107, 255, 0.05), transparent 70%);
       pointer-events: none;
     }
-    
+
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
       margin-bottom: 4rem;
     }
-    
+
     .feature-card {
       padding: 1.5rem;
       background: rgba(7, 11, 20, 0.5);
@@ -756,13 +785,13 @@
       border-radius: 1rem;
       transition: all 0.3s;
     }
-    
+
     .feature-card:hover {
       border-color: rgba(45, 107, 255, 0.3);
       background: rgba(7, 11, 20, 0.7);
       transform: translateY(-4px);
     }
-    
+
     .feature-icon {
       width: 2.5rem;
       height: 2.5rem;
@@ -775,21 +804,21 @@
       color: var(--accent);
       font-size: 1rem;
     }
-    
+
     .feature-card h3 {
       font-size: 1.125rem;
       margin-bottom: 0.5rem;
     }
-    
+
     .feature-card p {
       color: var(--text-secondary);
       font-size: 0.9375rem;
     }
-    
+
     .tech-stack {
       text-align: center;
     }
-    
+
     .tech-stack p {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6875rem;
@@ -798,14 +827,14 @@
       color: var(--text-secondary);
       margin-bottom: 1rem;
     }
-    
+
     .tech-tags {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.75rem;
     }
-    
+
     .tech-tag {
       padding: 0.625rem 1rem;
       background: rgba(7, 11, 20, 0.7);
@@ -818,17 +847,17 @@
       color: var(--text-primary);
       transition: all 0.3s;
     }
-    
+
     .tech-tag:hover {
       border-color: rgba(45, 107, 255, 0.3);
       background: rgba(7, 11, 20, 0.9);
     }
-    
+
     /* Testimonials Section */
     .testimonials {
       background: var(--bg-primary);
     }
-    
+
     .testimonials::before {
       content: '';
       position: absolute;
@@ -840,18 +869,18 @@
       background: radial-gradient(circle, rgba(45, 107, 255, 0.1), transparent 70%);
       pointer-events: none;
     }
-    
+
     .testimonials-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
     }
-    
+
     .testimonial-image {
       position: relative;
     }
-    
+
     .testimonial-image img {
       width: 100%;
       height: auto;
@@ -859,22 +888,22 @@
       border: 1px solid var(--border);
       box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
     }
-    
+
     .testimonial-content {
       position: relative;
     }
-    
+
     .stars {
       display: flex;
       gap: 0.25rem;
       margin-bottom: 1.5rem;
     }
-    
+
     .stars i {
       color: var(--accent);
       font-size: 1rem;
     }
-    
+
     .testimonial-quote {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(1.5rem, 3vw, 2.5rem);
@@ -882,27 +911,27 @@
       line-height: 1.2;
       margin-bottom: 2rem;
     }
-    
+
     .testimonial-author {
       margin-bottom: 1.5rem;
     }
-    
+
     .testimonial-author h4 {
       font-size: 1.125rem;
       margin-bottom: 0.25rem;
     }
-    
+
     .testimonial-author p {
       color: var(--text-secondary);
     }
-    
+
     .testimonial-metrics {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
       margin-bottom: 2rem;
     }
-    
+
     .metric {
       display: flex;
       align-items: center;
@@ -912,37 +941,37 @@
       border: 1px solid var(--border);
       border-radius: 0.5rem;
     }
-    
+
     .metric i {
       color: var(--accent);
       font-size: 0.875rem;
     }
-    
+
     .metric span {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.8125rem;
     }
-    
+
     .testimonial-card {
       position: relative;
       border-radius: 1rem;
       overflow: hidden;
       border: 1px solid var(--border);
     }
-    
+
     .testimonial-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
-    
+
     .testimonial-card::after {
       content: '';
       position: absolute;
       inset: 0;
       background: linear-gradient(to top, rgba(7, 11, 20, 0.9), transparent);
     }
-    
+
     .testimonial-card-content {
       position: absolute;
       bottom: 1rem;
@@ -950,22 +979,22 @@
       right: 1rem;
       z-index: 1;
     }
-    
+
     .testimonial-card-content h4 {
       font-size: 1rem;
       margin-bottom: 0.25rem;
     }
-    
+
     .testimonial-card-content p {
       font-size: 0.875rem;
       color: var(--text-secondary);
     }
-    
+
     /* Contact Section */
     .contact {
       background: var(--bg-primary);
     }
-    
+
     .contact::before {
       content: '';
       position: absolute;
@@ -977,25 +1006,25 @@
       background: radial-gradient(ellipse, rgba(0, 212, 255, 0.05), transparent 60%);
       pointer-events: none;
     }
-    
+
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
     }
-    
+
     .contact-form {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
     }
-    
+
     .form-group {
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
     }
-    
+
     .form-group label {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6875rem;
@@ -1003,7 +1032,7 @@
       letter-spacing: 0.12em;
       color: var(--text-secondary);
     }
-    
+
     .form-group input,
     .form-group textarea {
       padding: 1rem;
@@ -1015,34 +1044,34 @@
       transition: all 0.3s;
       font-family: 'Inter', sans-serif;
     }
-    
+
     .form-group input:focus,
     .form-group textarea:focus {
       outline: none;
       border-color: rgba(45, 107, 255, 0.5);
       box-shadow: 0 0 0 3px rgba(45, 107, 255, 0.1);
     }
-    
+
     .form-group input::placeholder,
     .form-group textarea::placeholder {
       color: rgba(167, 177, 198, 0.5);
     }
-    
+
     .form-group textarea {
       resize: vertical;
       min-height: 150px;
     }
-    
+
     .contact-info {
       display: flex;
       flex-direction: column;
       gap: 2rem;
     }
-    
+
     .contact-image {
       position: relative;
     }
-    
+
     .contact-image img {
       width: 100%;
       height: auto;
@@ -1050,25 +1079,25 @@
       border: 1px solid var(--border);
       box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
     }
-    
+
     .contact-card {
       padding: 1.5rem;
       background: rgba(11, 18, 34, 0.5);
       border: 1px solid var(--border);
       border-radius: 1rem;
     }
-    
+
     .contact-item {
       display: flex;
       align-items: center;
       gap: 1rem;
       margin-bottom: 1.5rem;
     }
-    
+
     .contact-item:last-child {
       margin-bottom: 0;
     }
-    
+
     .contact-icon {
       width: 3rem;
       height: 3rem;
@@ -1080,7 +1109,7 @@
       color: var(--accent);
       font-size: 1rem;
     }
-    
+
     .contact-item p {
       font-family: 'IBM Plex Mono', monospace;
       font-size: 0.6875rem;
@@ -1089,22 +1118,22 @@
       color: var(--text-secondary);
       margin-bottom: 0.25rem;
     }
-    
+
     .contact-item a {
       color: var(--text-primary);
       text-decoration: none;
       transition: color 0.3s;
     }
-    
+
     .contact-item a:hover {
       color: var(--accent);
     }
-    
+
     .social-links {
       display: flex;
       gap: 0.75rem;
     }
-    
+
     .social-links a {
       width: 2.5rem;
       height: 2.5rem;
@@ -1118,42 +1147,42 @@
       text-decoration: none;
       transition: all 0.3s;
     }
-    
+
     .social-links a:hover {
       color: var(--text-primary);
       border-color: rgba(45, 107, 255, 0.3);
     }
-    
+
     /* Footer */
     footer {
       background: var(--bg-secondary);
       border-top: 1px solid var(--border);
       padding: 4rem 2rem 2rem;
     }
-    
+
     .footer-container {
       max-width: 1400px;
       margin: 0 auto;
     }
-    
+
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 3rem;
       margin-bottom: 3rem;
     }
-    
+
     .footer-brand p {
       color: var(--text-secondary);
       font-size: 0.9375rem;
       margin: 1rem 0 1.5rem;
     }
-    
+
     .footer-social {
       display: flex;
       gap: 0.75rem;
     }
-    
+
     .footer-social a {
       width: 2.25rem;
       height: 2.25rem;
@@ -1167,36 +1196,45 @@
       text-decoration: none;
       transition: all 0.3s;
     }
-    
+
     .footer-social a:hover {
       color: var(--text-primary);
       border-color: rgba(45, 107, 255, 0.3);
     }
-    
+
+    .social-links a.facebook:hover,
+    .footer-social a.facebook:hover {
+      color: white;
+      background: #1877F2;
+      border-color: #1877F2;
+      box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);
+      transform: translateY(-3px);
+    }
+
     .footer-links h4 {
       font-size: 1rem;
       margin-bottom: 1rem;
     }
-    
+
     .footer-links ul {
       list-style: none;
     }
-    
+
     .footer-links li {
       margin-bottom: 0.75rem;
     }
-    
+
     .footer-links a {
       color: var(--text-secondary);
       text-decoration: none;
       font-size: 0.9375rem;
       transition: color 0.3s;
     }
-    
+
     .footer-links a:hover {
       color: var(--text-primary);
     }
-    
+
     .footer-bottom {
       padding-top: 2rem;
       border-top: 1px solid var(--border);
@@ -1206,28 +1244,82 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
-    
+
     .footer-bottom p {
       color: var(--text-secondary);
       font-size: 0.875rem;
     }
-    
+
     .footer-bottom-links {
       display: flex;
       gap: 1.5rem;
     }
-    
+
     .footer-bottom-links a {
       color: var(--text-secondary);
       text-decoration: none;
       font-size: 0.875rem;
       transition: color 0.3s;
     }
-    
+
     .footer-bottom-links a:hover {
       color: var(--text-primary);
     }
-    
+
+    /* Facebook Button */
+    .facebook-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 5.5rem;
+      z-index: 1000;
+      width: 3.5rem;
+      height: 3.5rem;
+      background: linear-gradient(135deg, #1877F2, #0d5bb7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(24, 119, 242, 0.4);
+      transition: all 0.3s;
+    }
+
+    .facebook-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 30px rgba(24, 119, 242, 0.5);
+    }
+
+    .facebook-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: rgba(24, 119, 242, 0.4);
+      animation: pulse 2s infinite;
+    }
+
+    .facebook-tooltip {
+      position: absolute;
+      right: 100%;
+      margin-right: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      font-size: 0.8125rem;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+
+    .facebook-btn:hover .facebook-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
     /* WhatsApp Button */
     .whatsapp-btn {
       position: fixed;
@@ -1247,12 +1339,12 @@
       box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
       transition: all 0.3s;
     }
-    
+
     .whatsapp-btn:hover {
       transform: scale(1.1);
       box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
     }
-    
+
     .whatsapp-btn::before {
       content: '';
       position: absolute;
@@ -1261,12 +1353,19 @@
       background: rgba(37, 211, 102, 0.4);
       animation: pulse 2s infinite;
     }
-    
+
     @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(1.5); opacity: 0; }
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
     }
-    
+
     .whatsapp-tooltip {
       position: absolute;
       right: 100%;
@@ -1281,46 +1380,46 @@
       visibility: hidden;
       transition: all 0.3s;
     }
-    
+
     .whatsapp-btn:hover .whatsapp-tooltip {
       opacity: 1;
       visibility: visible;
     }
-    
+
     /* Reveal Animation */
     .reveal {
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.8s ease-out;
     }
-    
+
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
-    
+
     .reveal-left {
       opacity: 0;
       transform: translateX(-50px);
       transition: all 0.8s ease-out;
     }
-    
+
     .reveal-left.active {
       opacity: 1;
       transform: translateX(0);
     }
-    
+
     .reveal-right {
       opacity: 0;
       transform: translateX(50px);
       transition: all 0.8s ease-out;
     }
-    
+
     .reveal-right.active {
       opacity: 1;
       transform: translateX(0);
     }
-    
+
     /* Toast Notification */
     .toast {
       position: fixed;
@@ -1337,17 +1436,18 @@
       transform: translateX(150%);
       transition: transform 0.3s ease;
     }
-    
+
     .toast.show {
       transform: translateX(0);
     }
-    
+
     .toast i {
       color: #10B981;
     }
-    
+
     /* Responsive */
     @media (max-width: 1024px) {
+
       .hero-container,
       .process-grid,
       .portfolio-grid,
@@ -1356,64 +1456,64 @@
         grid-template-columns: 1fr;
         gap: 3rem;
       }
-      
+
       .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
-      
+
       .portfolio-header {
         order: -1;
       }
-      
+
       .testimonial-content {
         order: -1;
       }
     }
-    
+
     @media (max-width: 768px) {
       .nav-links {
         display: none;
       }
-      
+
       .mobile-menu-btn {
         display: block;
       }
-      
+
       .hero {
         padding-top: 6rem;
       }
-      
+
       .hero-content h1 {
         font-size: 2.5rem;
       }
-      
+
       .hero-cards {
         grid-template-columns: 1fr;
       }
-      
+
       .services-grid {
         grid-template-columns: 1fr;
       }
-      
+
       .features-grid {
         grid-template-columns: 1fr;
       }
-      
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
-      
+
       .footer-bottom {
         flex-direction: column;
         text-align: center;
       }
-      
+
       section {
         padding: 4rem 1.5rem;
       }
     }
-    
+
     /* Mobile Menu */
     .mobile-menu {
       position: fixed;
@@ -1430,12 +1530,12 @@
       visibility: hidden;
       transition: all 0.3s;
     }
-    
+
     .mobile-menu.active {
       opacity: 1;
       visibility: visible;
     }
-    
+
     .mobile-menu a {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1.5rem;
@@ -1443,15 +1543,15 @@
       text-decoration: none;
       transition: color 0.3s;
     }
-    
+
     .mobile-menu a:hover {
       color: var(--accent);
     }
-    
+
     .mobile-menu .btn-primary {
       margin-top: 1rem;
     }
-    
+
     .mobile-menu-close {
       position: absolute;
       top: 1.5rem;
@@ -1464,6 +1564,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- Toast Notification -->
   <div id="toast" class="toast">
@@ -1821,33 +1922,28 @@
           <span class="section-label">Get In Touch</span>
           <h2 class="section-title">Let's build your <span class="text-gradient">next site.</span></h2>
           <p class="section-desc">Tell us what you need. We'll reply within 24 hours.</p>
-          <form class="contact-form" action="https://formspree.io/f/xaqpzrqb" method="POST">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" placeholder="Your name" required>
-  </div>
 
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="your@email.com" required>
-  </div>
-
-  <div class="form-group">
-    <label for="message">Message</label>
-    <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
-  </div>
-
-  <!-- Optional: customize the email subject -->
-  <input type="hidden" name="_subject" value="New Client Message from Website">
-
-  <!-- Optional: redirect to thank you page -->
-  <input type="hidden" name="_next" value="https://sameerachathuranga2005-gif.github.io/webmaking32/thankyou.html">
-
-  <button type="submit" class="btn-primary" style="width: fit-content;">
-    Send Message
-  </button>
-</form>
-
+          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width: fit-content;">
+              <span id="btnText">Send Message</span>
+              <i class="fas fa-paper-plane" id="btnIcon"></i>
+              <div id="btnLoader"
+                style="display: none; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 1s linear infinite;">
+              </div>
+            </button>
+          </form>
         </div>
         <div class="contact-info reveal-right">
           <div class="contact-image">
@@ -1862,8 +1958,11 @@
               </div>
             </div>
             <div class="social-links">
+              <a href="https://web.facebook.com/profile.php?id=61575743182758" target="_blank" aria-label="Facebook"
+                class="facebook"><i class="fab fa-facebook-f"></i></a>
               <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-              <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i
+                  class="fab fa-linkedin-in"></i></a>
               <a href="https://dribbble.com" target="_blank" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
             </div>
           </div>
@@ -1880,6 +1979,8 @@
           <a href="#" class="logo">NewGen</a>
           <p>Building fast, professional, and high-quality websites for modern businesses.</p>
           <div class="footer-social">
+            <a href="https://web.facebook.com/profile.php?id=61575743182758" target="_blank" aria-label="Facebook"
+              class="facebook"><i class="fab fa-facebook-f"></i></a>
             <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://dribbble.com" target="_blank" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
@@ -1925,8 +2026,16 @@
     </div>
   </footer>
 
+  <!-- Facebook Floating Button -->
+  <a href="https://web.facebook.com/profile.php?id=61575743182758" target="_blank" class="facebook-btn"
+    aria-label="Visit Facebook Page">
+    <i class="fab fa-facebook-f"></i>
+    <span class="facebook-tooltip">Visit Facebook Page</span>
+  </a>
+
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/94771438102?text=Hi! I'm interested in building a website. Can we discuss?" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/94771438102?text=Hi! I'm interested in building a website. Can we discuss?" target="_blank"
+    class="whatsapp-btn" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
     <span class="whatsapp-tooltip">Chat on WhatsApp</span>
   </a>
@@ -1950,7 +2059,7 @@
 
     // Reveal animations on scroll
     const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    
+
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1965,7 +2074,38 @@
     revealElements.forEach(el => revealObserver.observe(el));
 
     // Form submission
-   
+    function handleSubmit(e) {
+      e.preventDefault();
+
+      const btnText = document.getElementById('btnText');
+      const btnIcon = document.getElementById('btnIcon');
+      const btnLoader = document.getElementById('btnLoader');
+      const toast = document.getElementById('toast');
+
+      // Show loading state
+      btnText.style.display = 'none';
+      btnIcon.style.display = 'none';
+      btnLoader.style.display = 'block';
+
+      // Simulate form submission
+      setTimeout(() => {
+        // Reset button
+        btnText.style.display = 'inline';
+        btnIcon.style.display = 'inline';
+        btnLoader.style.display = 'none';
+
+        // Show toast
+        toast.classList.add('show');
+
+        // Reset form
+        document.getElementById('contactForm').reset();
+
+        // Hide toast after 5 seconds
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 5000);
+      }, 1500);
+    }
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1991,4 +2131,5 @@
     document.head.appendChild(style);
   </script>
 </body>
+
 </html>
